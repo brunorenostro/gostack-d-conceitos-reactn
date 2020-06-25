@@ -14,12 +14,12 @@ useEffect(()=>{
   });
 
 
-},[repositories]);
+},[]);
   async function handleLikeRepository(id) {
-    console.log(`o id do botão é${id}`);
+   
   const {data}= await api.post(`/repositories/${id}/like`);
-  
- repositories.map(repository => repository.id !== id ? data : repository);
+  setRepositories(repositories.map(repository=> repository.id===id ? data : repository));
+
   
 
    
